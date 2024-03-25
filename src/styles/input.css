@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Inter';
+    src: url('/assets/fonts/Inter/Inter-Black.woff2') format('woff2');
+    src: url('/assets/fonts/Inter/Inter-Medium.woff2') format('woff2');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: 'Rubik';
+    src: url('/assets/fonts/Rubik/Rubik-Bold.woff2') format('woff2');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: 'InkFree';
+    src: url('/assets/fonts/Ink-Free/InkFree.woff2') format('woff2');
+    font-weight: 400;
+  }
+}

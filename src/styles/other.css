@@ -1,0 +1,10 @@
+.line-width {
+  width: calc((25% / 2) + 3px);
+}
+
+.rotator > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
