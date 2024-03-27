@@ -133,19 +133,19 @@ let horizontalSection = document.querySelector('.horizontal');
 
 console.log(horizontalSection.scrollWidth);
 
-gsap.to('.horizontal', {
-  x: () => horizontalSection.scrollWidth * -1,
-  xPercent: 100,
-  scrollTrigger: {
-    trigger: '.horizontal',
-    start: 'center center',
-    end: '+=1000px',
-    pin: '#horizontal-scoll',
-    scrub: true,
-    pinSpacing: true,
-    invalidateOnRefresh: true,
-  },
-});
+// gsap.to('.horizontal', {
+//   x: () => horizontalSection.scrollWidth * -1,
+//   xPercent: 100,
+//   scrollTrigger: {
+//     trigger: '.horizontal',
+//     start: 'center center',
+//     end: '+=1000px',
+//     pin: '#horizontal-scoll',
+//     scrub: true,
+//     pinSpacing: true,
+//     invalidateOnRefresh: true,
+//   },
+// });
 
 const myText = new SplitType('.siteText');
 const showAnim = gsap.timeline({ duration: 0.2 });
