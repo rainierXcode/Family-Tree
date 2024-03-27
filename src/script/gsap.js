@@ -118,9 +118,7 @@ for (let i = 0; i < words.length; i++) {
 //Smooth Scroll
 const lenis = new Lenis();
 
-lenis.on('scroll', (e) => {
-  console.log(e);
-});
+lenis.on('scroll', (e) => {});
 
 function raf(time) {
   lenis.raf(time);
@@ -130,17 +128,22 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 gsap.registerPlugin(ScrollTrigger);
-let sections = gsap.utils.toArray('.imgContainer .boxes');
 
-gsap.to(sections, {
-  xPercent: -100 * (sections.length - 1),
-  ease: 'none',
+let horizontalSection = document.querySelector('.horizontal');
+
+console.log(horizontalSection.scrollWidth);
+
+gsap.to('.horizontal', {
+  x: () => horizontalSection.scrollWidth * -1,
+  xPercent: 100,
   scrollTrigger: {
-    trigger: '.imgContainer',
-    pin: '.main',
+    trigger: '.horizontal',
+    start: 'center center',
+    end: '+=1000px',
+    pin: '#horizontal-scoll',
+    scrub: true,
     pinSpacing: true,
-    scrub: 1,
-    end: '+=1500',
+    invalidateOnRefresh: true,
   },
 });
 
