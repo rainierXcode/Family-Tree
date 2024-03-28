@@ -100,17 +100,20 @@ tl.from('#familySvg  path', {
 //Rotate words
 const words = $('.rotator > span');
 
-let main = new TimelineMax({ repeat: -1 });
+let main = gsap.timeline({ repeat: -1 });
 
 for (let i = 0; i < words.length; i++) {
   let delay = i - 1;
-  let wordTL = new TimelineMax();
+  let wordTL = gsap.timeline();
   if (i !== 0) {
-    wordTL.from(words[i], 1, { y: '-100%', opacity: 0 });
+    wordTL.from(words[i], { duration: 1, yPercent: -100, opacity: 0, ease: 'power2.out' });
+  } else {
+    delay += 1;
+    gsap.set(words[0], { opacity: 1, yPercent: 0 });
   }
 
   if (i !== words.length - 1) {
-    wordTL.to(words[i], 1, { y: '100%', opacity: 0 });
+    wordTL.to(words[i], { duration: 1, yPercent: 100, opacity: 0, ease: 'power2.out' });
   }
   main.add(wordTL, delay);
 }
@@ -131,8 +134,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 let horizontalSection = document.querySelector('.horizontal');
 
-console.log(horizontalSection.scrollWidth);
-
 gsap.to('.horizontal', {
   x: () => horizontalSection.scrollWidth * -1,
   xPercent: 100,
@@ -147,6 +148,7 @@ gsap.to('.horizontal', {
   },
 });
 
+//Header
 const myText = new SplitType('.siteText');
 const showAnim = gsap.timeline({ duration: 0.2 });
 showAnim.from('.navbar', { yPercent: -100 }).from('.char', { yPercent: -200, stagger: 0.03 }, '<');
