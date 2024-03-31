@@ -13,4 +13,29 @@
   display: flex;
   flex-shrink: 0;
   padding: 0 5px;
+  overflow: hidden;
+}
+
+.horizontal > div > img {
+  transition: transform 800ms ease-in-out;
+}
+
+.horizontal > div:hover > img {
+  transform: scale(1.2);
+}
+
+.render {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  inset: 0;
+  z-index: 1000;
+  animation: render 1s forwards;
+}
+
+@keyframes render {
+  to {
+    display: none;
+  }
 }
