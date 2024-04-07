@@ -3,10 +3,6 @@
 const introG = $('introSvg g');
 const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 0.8 } });
 
-gsap.set(introG, {
-  autoAlpha: 1,
-});
-
 tl.from('#familySvg  path', {
   delay: 0.5,
   yPercent: -200,
@@ -38,8 +34,9 @@ tl.from('#familySvg  path', {
       yPercent: 200,
       opacity: 0,
     },
-    '-=1'
+    '-=.9'
   )
+
   .from(
     '.reveal',
     {
@@ -120,18 +117,6 @@ for (let i = 0; i < words.length; i++) {
   main.add(wordTL, delay);
 }
 
-//Smooth Scroll
-const lenis = new Lenis();
-
-lenis.on('scroll', (e) => {});
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
-
 gsap.registerPlugin(ScrollTrigger);
 
 let horizontalSection = $('.horizontal');
@@ -163,137 +148,184 @@ ScrollTrigger.create({
   },
 });
 
-//Gallery
-const imageContainers = gsap.utils.toArray($('.galleryReveal'));
+const familyTreeTextTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.familyTreeText',
+    start: 'top 35%',
+    end: '+=400',
+    scrub: 1,
+    pin: '.actualFamilyText',
+    pinSpacing: true,
+    toggleActions: 'play none none reset',
+  },
+});
 
-imageContainers.forEach((container) => {
-  let galleryImg = container.querySelector('img');
+familyTreeTextTl.to('.treeText', {
+  xPercent: 27,
+  ease: 'power3.inOut',
+});
 
-  let galleryTl = gsap.timeline({
+const familyDiagramTL = gsap.timeline({
+  scrollTrigger: {
+    start: '100% 0%',
+    trigger: '.actualFamilyText',
+    toggleActions: 'play none none reset',
+    instantClear: true,
+    stagger: 0.2,
+  },
+  ease: 'power4.inOut',
+});
+
+familyDiagramTL
+  .to('.familyTextContainer', {
+    backgroundColor: '#435659',
+    ease: 'power3.inOut',
+  })
+  .from('.diagramMainBoxFirst', {
+    opacity: 0,
+    xPercent: 100,
+    duration: 1,
+  })
+  .from(
+    '.diagramLineFirst',
+    {
+      opacity: 0,
+      xPercent: 100,
+    },
+    '-=0.3'
+  )
+  .from(
+    '.meetTextFirst',
+    {
+      opacity: 0,
+      stagger: 0.03,
+      duration: 1,
+    },
+    '+=0.07'
+  );
+
+const diagramBoxLeft = gsap.utils.toArray($('.diagramBoxLeft'));
+
+diagramBoxLeft.forEach((container) => {
+  let diagramLine = container.querySelector('.diagramLineLeft');
+  let meetText = container.querySelector('.meetTextLeft');
+  let mainBox = container.querySelector('.diagramMainBoxLeft');
+  let diagramTlLeft = gsap.timeline({
     scrollTrigger: {
       trigger: container,
-      toggleActions: 'restart reverse play reset',
-      start: 'center 80%',
-      end: 'center 5%',
-    },
-    defaults: {
-      duration: 1.4,
-      ease: 'Power3.inOut',
-      snap: true,
+      start: 'top 50%',
+      toggleActions: 'play none none reset',
+      instantClear: true,
+      stagger: 0.2,
     },
   });
 
-  let right = container.classList.contains('galleryRevealRight');
+  let child = container.classList.contains('diagramBoxAte');
 
-  if (right) {
-    galleryTl
-      .from(
-        container,
-        {
-          opacity: 0,
-          xPercent: 100,
-        },
-        0
-      )
-      .from(
-        galleryImg,
-        {
-          xPercent: -100,
-          scale: 1.15,
-        },
-        0
-      );
+  if (!child) {
+    diagramTlLeft
+      .from(mainBox, {
+        opacity: 0,
+        xPercent: -100,
+        duration: 1,
+      })
+      .from(diagramLine, {
+        opacity: 0,
+        xPercent: -100,
+        duration: 1,
+      })
+      .from(meetText, {
+        opacity: 0,
+        stagger: 0.03,
+        duration: 1,
+      });
   } else {
-    galleryTl
+    diagramTlLeft
+      .from(
+        diagramLine,
+        {
+          opacity: 0,
+          xPercent: -100,
+          duration: 1,
+        },
+        0.1
+      )
       .from(
         container,
         {
           opacity: 0,
           xPercent: -100,
+          duration: 1,
         },
-        0
+        '-=0.3'
       )
       .from(
-        galleryImg,
+        meetText,
         {
-          xPercent: 100,
-          scale: 1.15,
+          opacity: 0,
+          stagger: 0.03,
+          duration: 1,
         },
-        0
+        '+=0.07'
       );
   }
 });
 
-const arrow = $('.scrollArrow');
-const circular = $('.scrollCircular');
-const scrollBox = $('.scrollBox');
+const diagramBoxRight = gsap.utils.toArray($('.diagramBoxRight'));
 
-const arrowTl = gsap.timeline({ repeat: -1, yoyo: true });
-
-arrowTl.from(arrow, {
-  yPercent: -40,
-  ease: 'power3.inOut',
-  duration: 1,
-  opacity: 0.8,
-});
-
-gsap.set(circular, { transformOrigin: '50% 50%' });
-
-const circularTl = gsap.timeline({ repeat: -1 });
-circularTl
-  .to(circular, {
-    rotate: 360,
-    ease: 'power3.inOut',
-    duration: 1,
-  })
-  .to(circular, {
-    rotate: -360,
-    ease: 'power3.inOut',
-    duration: 1,
-  })
-  .to(circular, {
-    rotate: -720,
-    ease: 'power3.inOut',
-    duration: 1,
-  })
-  .to(circular, {
-    rotate: 0,
-    ease: 'power3.inOut',
-    duration: 1,
+diagramBoxRight.forEach((container) => {
+  let diagramLine = container.querySelector('.diagramLineRight');
+  let meetText = container.querySelector('.meetTextRight');
+  let mainBox = container.querySelector('.diagramMainBoxRight');
+  let diagramTlRight = gsap.timeline({
+    scrollTrigger: {
+      trigger: container,
+      start: 'top 50%',
+      toggleActions: 'play none none reset',
+      instantClear: true,
+      stagger: 0.2,
+    },
   });
 
-const scrollArrowTrigger = ScrollTrigger.create({
-  trigger: scrollBox,
-  start: 'bottom 90%',
-  onEnter: () => {
-    gsap.to(scrollBox, { opacity: 0 });
-    circularTl.pause();
-    arrowTl.pause();
-  },
+  diagramTlRight
+    .from(
+      diagramLine,
+      {
+        opacity: 0,
+        xPercent: 100,
+        duration: 1,
+      },
+      0.1
+    )
+    .from(
+      container,
+      {
+        opacity: 0,
+        xPercent: 100,
+        duration: 1,
+      },
+      '+=0.3'
+    )
+
+    .from(
+      meetText,
+      {
+        opacity: 0,
+        stagger: 0.03,
+        duration: 1,
+      },
+      '+=0.07'
+    );
 });
 
-const colorTrigger1 = $('.galleryChangeColor1');
-const colorTrigger2 = $('.galleryChangeColor2');
-const galleryPage = $('.galleryPage');
+const lenis = new Lenis();
 
-gsap.to(galleryPage, {
-  backgroundColor: '#D4D6B9',
-  ease: 'power3.in',
-  scrollTrigger: {
-    trigger: colorTrigger1,
-    start: 'center 75%',
-    end: 'center 55%',
-    toggleActions: 'play none none reset',
-  },
+lenis.on('scroll', (e) => {});
+
+lenis.on('scroll', ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
 });
 
-gsap.to(galleryPage, {
-  backgroundColor: '#f7fee7',
-  ease: 'power3.in',
-  scrollTrigger: {
-    trigger: colorTrigger2,
-    start: 'center 65%',
-    end: 'center 55%',
-    toggleActions: 'play none none reset',
-  },
-});
+gsap.ticker.lagSmoothing(0);

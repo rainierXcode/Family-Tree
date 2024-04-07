@@ -16,10 +16,10 @@
             <div class="mr-2">
               <img src="../../assets/icons/logo.svg" alt="" class="w-3" />
             </div>
-            <div class="font-extrabold lg:text-lg font-Inter siteText">Kinlore</div>
+            <div class="lg:text-lg font-Inter-Black siteText">Kinlore</div>
           </div>
           <div class="flex-none hidden md:block">
-            <ul class="px-1 py-0 text-sm menu menu-horizontal font-Inter">
+            <ul class="px-1 py-0 text-sm menu menu-horizontal font-Inter-Medium">
               <li class="bg-zinc-50"><a>Home</a></li>
               <li><a href="gallery.html">Gallery</a></li>
               <li><a href="#diagram">Diagram</a></li>
@@ -57,7 +57,7 @@
 
           <div class="relative px-8 mx-auto overflow-hidden lg:w-9/12 md:px-16 lg:px-0">
             <div class="relative mt-6 xl:h-[100vh] xl-pb-0 pb-12">
-              <div class="absolute bottom-0 w-[30%] overflow-hidden rounded-lg reveal">
+              <div class="absolute bottom-0 w-[30%] overflow-hidden reveal">
                 <img src="../../assets/images/trees.png" alt="trees.png" />
               </div>
               <div class="absolute top-0 right-0 w-1/4 overflow-hidden reveal2">
@@ -163,11 +163,12 @@
         </div>
 
         <div
-          class="min-h-[200px] md:min-h-[300px] bg-blue-400 flex items-center justify-center font-Rubik font-bold lg:text-3xl md:text-xl sm:text-xs text-[2.4vw] text-white sm:p-8 p-2"
+          class="min-h-[200px] md:min-h-[300px] bg-blue-400 flex items-center justify-center font-Rubik font-bold lg:text-3xl md:text-xl sm:text-xs text-[2.4vw] text-white sm:p-8 p-2 quoteBox"
         >
           <div class="text-justify">
             A FAMILY, THROUGH THICK AND THIN, TOGETHER THEY
             <span class="relative w-32 pl-2 ml-4 align-text-bottom rotator">
+              <span></span>
               <span class="text-rose-400">DWELL</span>
               <span class="text-green-300">WILL</span>
               <span class="text-yellow-300">DREAM</span>
@@ -203,35 +204,269 @@
           </div>
         </div>
 
-        <div class="h-[1000px] bg-blue-400 py-14" id="diagram">
-          <div class="flex items-center justify-center text-white">
-            <div class="flex-1 h-1 bg-white"></div>
-            <div class="mx-5 text-2xl">MEET THE PARENTS</div>
-            <div class="flex-1 h-1 bg-white"></div>
+        <div
+          class="box-border flex flex-col overflow-hidden bg-white familyTextContainer"
+          id="diagram"
+        >
+          <div class="pl-32 text-[150px] leading-none font-Marxiana familyTreeText pb-10 pt-10">
+            <div class="actualFamilyText">
+              <div>FAMILY</div>
+              <div class="treeText">TREE</div>
+            </div>
           </div>
 
-          <div class="flex justify-center gap-16 py-12 px-7">
-            <div
-              class="bg-stone-100 w-60 h-72 rounded-tl-[55px] rounded-tr-[30px] rounded-bl-[30px] rounded-br-[45px] border-[#81AED9] border-solid border-2 border-r-[10px] p-8"
-            >
-              <div class="flex flex-col items-center">
-                <div class="avatar">
-                  <div class="w-20 rounded-full">
-                    <img
-                      src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                    />
+          <div class="min-h-[1000px] diagramContainer">
+            <div class="py-32">
+              <!-- Father -->
+              <div
+                class="flex justify-between mt-20 pt-52 w-[900px] mr-32 ml-auto diagramBoxFirst"
+                id="father"
+              >
+                <div class="flex-1 h-3 pt-10">
+                  <div class="flex">
+                    <div class="text-4xl text-white translate-x-1 font-Rubik meetTextFirst">
+                      MEET THE FATHER
+                    </div>
+                    <div class="flex items-end flex-1 pb-2">
+                      <div class="flex-1 h-1 bg-white diagramLineFirst"></div>
+                    </div>
                   </div>
                 </div>
-                <div class="mt-2 font-Inter">Lolo Bill</div>
+                <div class="flex h-64 p-6 bg-white w-96 diagramMainBoxFirst">
+                  <div class="w-[45%] bg-black rounded-lg relative diagramPicFirst">
+                    <img
+                      src="../../assets/images/father/father1.jpeg"
+                      alt=""
+                      class="h-full rounded-[inherit]"
+                    />
+
+                    <div
+                      class="absolute px-2 py-4 text-xs bg-white -right-4 -bottom-4 font-Rubik rounded-full text-[#8E4147]"
+                    >
+                      1978
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col flex-1 px-2">
+                    <div class="flex-1">
+                      <div class="text-4xl font-Bold font-Inter-Bold">
+                        <div>Ronilio</div>
+                        <div>Sapin</div>
+                      </div>
+                      <div class="pl-1 mt-1 text-sm font-Inter-Extra-Light">Father</div>
+                    </div>
+                    <div class="flex justify-end">
+                      <a
+                        href="profilePages/father.html"
+                        class="px-4 py-1 text-white bg-[#8E4147] text-[0.7rem] rounded-[5px] shadow-sm"
+                        >Click details</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mother -->
+
+              <div
+                class="flex justify-between w-[900px] ml-32 mr-auto pt-52 diagramBox diagramBoxLeft"
+                id="mother"
+              >
+                <div class="relative z-10 flex h-64 p-6 bg-white w-96 diagramMainBoxLeft">
+                  <div class="w-[45%] bg-black rounded-lg relative diagramPic">
+                    <img
+                      src="../../assets/images/mother/mother1.jpg"
+                      alt=""
+                      class="h-full rounded-[inherit]"
+                    />
+
+                    <div
+                      class="absolute px-2 py-4 text-xs bg-white -right-4 -bottom-4 font-Rubik rounded-full text-[#8E4147]"
+                    >
+                      1982
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col flex-1 px-2">
+                    <div class="flex-1">
+                      <div class="text-4xl font-Inter-Bold">
+                        <div>Marites</div>
+                        <div>Sapin</div>
+                      </div>
+                      <div class="pl-1 mt-1 text-sm font-Inter-Extra-Light">Mother</div>
+                    </div>
+                    <div class="flex justify-end">
+                      <a
+                        href="../templates/profilePages/mother.html"
+                        class="px-4 py-1 text-white bg-[#8E4147] text-[0.7rem] rounded-[5px] shadow-sm"
+                        >Click details</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="flex-1 h-3 pt-40">
+                  <div class="flex">
+                    <div class="flex items-end flex-1 pb-2">
+                      <div class="flex-1 h-1 bg-white diagramLineLeft"></div>
+                    </div>
+                    <div class="text-4xl text-white translate-x-1 font-Rubik meetTextLeft">
+                      MEET THE MOTHER
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Kuya -->
+              <div
+                class="flex justify-between w-[900px] ml-72 mr-auto pt-52 diagramBox diagramBoxLeft"
+                id="me"
+              >
+                <div class="relative z-10 flex h-64 p-6 bg-white w-96 diagramMainBoxLeft">
+                  <div class="w-[45%] bg-black rounded-lg relative diagramPic">
+                    <img
+                      src="../../assets/images/rainier/rainier1.jpg"
+                      alt=""
+                      class="h-full rounded-[inherit]"
+                    />
+
+                    <div
+                      class="absolute px-2 py-4 text-xs bg-white -right-4 -bottom-4 font-Rubik rounded-full text-[#8E4147]"
+                    >
+                      2004
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col flex-1 px-2">
+                    <div class="flex-1">
+                      <div class="text-4xl font-Inter-Bold">
+                        <div>Rainier</div>
+                        <div>Sapin</div>
+                      </div>
+                      <div class="pl-1 mt-1 text-sm font-Inter-Extra-Light">Brother</div>
+                    </div>
+                    <div class="flex justify-end">
+                      <a
+                        href="../templates/profilePages/rainier.html"
+                        class="px-4 py-1 text-white bg-[#8E4147] text-[0.7rem] rounded-[5px] shadow-sm"
+                        >Click details</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="flex-1 h-3 pt-40">
+                  <div class="flex">
+                    <div class="flex items-end flex-1 pb-2">
+                      <div class="flex-1 h-1 bg-white diagramLineLeft"></div>
+                    </div>
+                    <div class="text-4xl text-white translate-x-1 font-Rubik meetTextLeft">
+                      MEET THE KUYA
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex mt-40">
+                <!-- Ate -->
+                <div class="flex-1 diagramBox diagramBoxLeft diagramBoxAte" id="sister">
+                  <div class="mb-10 ml-40 text-4xl text-center text-white font-Rubik w-96">
+                    MEET THE ATE
+                  </div>
+                  <div class="flex">
+                    <div class="flex w-40 pt-11">
+                      <div class="flex-1 h-1 bg-white diagramLineLeft"></div>
+                    </div>
+                    <div
+                      class="relative z-10 flex h-64 p-6 bg-white w-96 diagramMainBoxLeft"
+                      id="me"
+                    >
+                      <div class="w-[45%] bg-black rounded-lg relative diagramPic">
+                        <img
+                          src="../../assets/images/sister/sister1.jpg"
+                          alt=""
+                          class="h-full rounded-[inherit]"
+                        />
+
+                        <div
+                          class="absolute px-2 py-4 text-xs bg-white -right-4 -bottom-4 font-Rubik rounded-full text-[#8E4147]"
+                        >
+                          2008
+                        </div>
+                      </div>
+
+                      <div class="flex flex-col flex-1 px-2">
+                        <div class="flex-1">
+                          <div class="text-2xl font-Inter-Bold">
+                            <div>Cherry Mae</div>
+                            <div>Sapin</div>
+                          </div>
+                          <div class="pl-1 mt-1 text-sm font-Inter-Extra-Light">Sister</div>
+                        </div>
+                        <div class="flex justify-end">
+                          <a
+                            href="../templates/profilePages/sister.html"
+                            class="px-4 py-1 text-white bg-[#8E4147] text-[0.7rem] rounded-[5px] shadow-sm"
+                            >Click details</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bunso -->
+                <div
+                  class="flex flex-col items-end flex-1 mt-40 diagramBox diagramBoxRight"
+                  id="brother"
+                >
+                  <div class="mb-10 mr-40 text-4xl text-center text-white font-Rubik w-96">
+                    MEET THE BUNSO
+                  </div>
+                  <div class="flex">
+                    <div class="relative z-10 flex h-64 p-6 bg-white w-96 diagramMainBoxRight">
+                      <div class="w-[45%] bg-black rounded-lg relative diagramPic">
+                        <img
+                          src="../../assets/images/brother/brother1.jpg"
+                          alt=""
+                          class="h-full rounded-[inherit]"
+                        />
+
+                        <div
+                          class="absolute px-2 py-4 text-xs bg-white -right-4 -bottom-4 font-Rubik rounded-full text-[#8E4147]"
+                        >
+                          2010
+                        </div>
+                      </div>
+
+                      <div class="flex flex-col flex-1 px-2">
+                        <div class="flex-1">
+                          <div class="text-2xl font-Inter-Bold">
+                            <div>David Mark</div>
+                            <div>Sapin</div>
+                          </div>
+                          <div class="pl-1 mt-1 text-sm font-Inter-Extra-Light">Youngest</div>
+                        </div>
+                        <div class="flex justify-end">
+                          <a
+                            href="../templates/profilePages/brother.html"
+                            class="px-4 py-1 text-white bg-[#8E4147] text-[0.7rem] rounded-[5px] shadow-sm"
+                            >Click details</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex w-40 pt-11">
+                      <div class="flex-1 h-1 bg-white diagramLineRight"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="bg-stone-100 w-60 h-72"></div>
           </div>
         </div>
       </div>
       <div class="drawer-side">
         <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
-        <ul class="min-h-full p-4 pt-16 text-lg bg-white mb menu w-80 font-Inter">
+        <ul class="min-h-full p-4 pt-16 text-lg bg-white mb menu w-80 font-Inter-Medium">
           <li><a>Home</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="#diagram">Diagram</a></li>

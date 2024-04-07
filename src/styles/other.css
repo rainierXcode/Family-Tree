@@ -39,3 +39,47 @@
     display: none;
   }
 }
+
+.diagramMainBoxFirst,
+.diagramMainBoxLeft,
+.diagramMainBoxRight {
+  border-radius: 1rem;
+  border-right: 10px solid #5790c6;
+}
+
+.pin {
+  top: -35px;
+  left: 20px;
+}
+
+.pin2 {
+  top: -35px;
+  left: 20px;
+}
+
+.profileBox {
+  opacity: 0;
+  animation: scaleUp 1600ms ease-in-out forwards;
+  animation-delay: 1600ms;
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.miniBg {
+  width: 0;
+  animation: reWidth 1500ms ease-in-out forwards;
+}
+
+@keyframes reWidth {
+  to {
+    width: 300px;
+  }
+}
