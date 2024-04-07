@@ -57,7 +57,7 @@ profTl
       opacity: 0,
       ease: 'power4.in',
     },
-    '-=0.01'
+    '<'
   )
   .from(
     blob3,
@@ -65,7 +65,7 @@ profTl
       opacity: 0,
       ease: 'power4.in',
     },
-    '-=0.01'
+    '<'
   )
   .from(
     blob4,
@@ -73,7 +73,7 @@ profTl
       opacity: 0,
       ease: 'power4.in',
     },
-    '-=0.01'
+    '<'
   )
   .from(
     buttons,
